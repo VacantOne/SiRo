@@ -1,0 +1,37 @@
+/Intermediate/
+/DerivedDataCache/
+/Saved/
+/.vs/
+.vsconfig
+*.o
+*.lo
+*.la
+*.al
+.libs
+*.so.[0-9]*
+*.pyc
+*.pyo
+__pycache__ *.rej
+*~ #*# .#*
+.*.swp
+.DS_Store
+[Tt]humbs.db
+*.ncb
+*.unsuccessfulbuild
+*.dir
+*.opensdf
+*.ipch
+*.cache
+*.lastbuildstate
+*.ib_pdb_index
+*.ilk
+*.idb
+*.exp
+*.tlog
+*.obj
+*.pdb
+*.sdf
+*.suo
+*.iobj
+*.ipdb
+*.~vsdx

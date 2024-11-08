@@ -1,0 +1,11 @@
+{
+	"BuildId": "33043543",
+	"Modules": 
+	{
+		"GameBase": "UnrealEditor-GameBase.dll",
+		"GameInstanceManager": "UnrealEditor-GameInstanceManager.dll",
+		"GameSystem": "UnrealEditor-GameSystem.dll",
+		"MyCore": "UnrealEditor-MyCore.dll",
+		"SiRo": "UnrealEditor-SiRo.dll"
+	}
+}
