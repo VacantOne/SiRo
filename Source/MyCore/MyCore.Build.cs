@@ -16,6 +16,6 @@ public class MyCore : ModuleRules
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
 
         // 私有依赖模块
-        PrivateDependencyModuleNames.AddRange(new string[] { });
+        PrivateDependencyModuleNames.AddRange(new string[] {});
 	}
 }

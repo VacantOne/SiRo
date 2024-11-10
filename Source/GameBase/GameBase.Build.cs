@@ -14,7 +14,7 @@ public class GameBase : ModuleRules
         PublicIncludePaths.AddRange(new string[] { "GameBase" });
         PrivatePCHHeaderFile = "GameBase.h";
 		PrivateDependencyModuleNames.AddRange(new string[] {
-            "Core", "CoreUObject", "Engine", "InputCore"
+            "Core", "CoreUObject", "Engine", "InputCore","UMG"
         });
         
         PublicDependencyModuleNames.AddRange((new []{"Core"}));

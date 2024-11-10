@@ -4,17 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "MyCore/ModuleInstance.h"
-//#include "MyCore/MySystem.h"
+#include "GameBaseInstance.generated.h"
 
-#include "GameSystemInstance.generated.h"
 /**
  * 
  */
 UCLASS()
-class GAMESYSTEM_API UGameSystemInstance : public UObject, public IModuleInstance
+class GAMEBASE_API UGameBaseInstance : public UObject, public IModuleInstance
 {
 	GENERATED_BODY()
+
 protected:
 	virtual void InitInstance(UGameInstance* pGameInstance) override;
 	virtual void ShutdownInstance(bool bCanDelGlobalObject) override;
+private:
+	FDelegateHandle m_handleAdminWorldTick;
 };

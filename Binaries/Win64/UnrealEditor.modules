@@ -3,9 +3,10 @@
 	"Modules": 
 	{
 		"GameBase": "UnrealEditor-GameBase.dll",
+		"GameComponent": "UnrealEditor-GameComponent.dll",
 		"GameInstanceManager": "UnrealEditor-GameInstanceManager.dll",
 		"GameSystem": "UnrealEditor-GameSystem.dll",
 		"MyCore": "UnrealEditor-MyCore.dll",
-		"SiRo": "UnrealEditor-SiRo.dll"
+		"MyEditor": "UnrealEditor-MyEditor.dll"
 	}
 }

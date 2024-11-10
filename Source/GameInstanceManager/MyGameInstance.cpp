@@ -1,11 +1,14 @@
 #include "MyGameInstance.h"
 // #include "GameSingle.h"
 #include "Engine/Engine.h"
-//#include "MyCore/SingleExpand.h"
+#include "MyCore/SingleExpand.h"
 // #include "AdminWorld.h"
 #include "MyCore/ModuleInstance.h"
-// #include "GameBaseInstance.h"
+#include "GameBase/GameBaseInstance.h"
 #include "GameSystem/GameSystemInstance.h"
+#include <MyCore/GameSingle.h>
+#include "Blueprint/UserWidget.h"
+
 // #include "ResMgr.h"
 // #include "LuaGameInstance.h"
 // #include "MyShellInstance.h"
@@ -20,15 +23,20 @@ void UMyGameInstance::Init()
 	
 // 	UCoreExpand::CreateMyNeedDir();
 	Super::Init();
+
 	OnMyGameInstanceInit.Broadcast(this);
 
-	UGameSystemInstance* pGameSystemInstance = NewObject<UGameSystemInstance>();
+	UGameBaseInstance* pGameBaseInstance = USingleExpand::CreateSingle<UGameBaseInstance>(this);
+	m_arrayModuleInstance.Add(pGameBaseInstance);
+
+	UGameSystemInstance* pGameSystemInstance = USingleExpand::CreateSingle<UGameSystemInstance>(this);
 	 m_arrayModuleInstance.Add(pGameSystemInstance);
 	
 	for (auto instance : m_arrayModuleInstance)
 	{
 		IModuleInstance* pModuleInstance = dynamic_cast<IModuleInstance*>(instance.Get());
-		pModuleInstance->InitInstance(this);
+		if(pModuleInstance != nullptr)	
+			pModuleInstance->InitInstance(this);
 	}
 }
 
@@ -72,6 +80,9 @@ void UMyGameInstance::Shutdown()
 		pModuleInstance->ShutdownInstance(bCanDelGlobalObject);
 	}
 	m_arrayModuleInstance.Empty();
+	//TUniquePtr<UGameSingle>& aa = g_pGameSingle;
+	//if(aa.IsValid())
+		g_pGameSingle->ClearGameObject(this);
 
 	Super::Shutdown();
 }

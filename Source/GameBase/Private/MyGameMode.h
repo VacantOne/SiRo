@@ -17,7 +17,9 @@ private:
 
 	virtual void PreInitializeComponents() override;
 	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
-// 	virtual void BeginPlay() override;
+ 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	virtual void RestartPlayerAtPlayerStart(AController* NewPlayer, AActor* StartSpot) override;
+
+	UClass* WidgetClass;
 };

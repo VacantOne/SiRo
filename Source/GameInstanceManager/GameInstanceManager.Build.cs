@@ -14,9 +14,9 @@ public class GameInstanceManager : ModuleRules
         PublicIncludePaths.AddRange(new string[] { "GameInstanceManager" });
         PrivatePCHHeaderFile = "GameInstanceManager.h";
 
-        PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine"});
+        PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "UMG"});
 		PrivateDependencyModuleNames.AddRange(new string[] {
-            "MyCore", "GameSystem"
+            "MyCore", "GameSystem", "GameBase"
         });
 
     }
