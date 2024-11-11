@@ -11,7 +11,6 @@ void UGameBaseInstance::InitInstance(UGameInstance* pGameInstance)
   	// UBaseData::CreateGameBaseDataIfNull(pGameInstance);
 	// UMyGameUserSetting::Get()->UpdateScreenPercentage();
 
-	//TUniquePtr<UAdminWorld>& pAdminWorld = UAdminWorld::Get(pGameInstance->GetWorld());
 	UAdminWorld* pAdminWorld = UAdminWorld::Get(pGameInstance->GetWorld());
 	m_handleAdminWorldTick = FWorldDelegates::OnWorldPostActorTick.AddUObject(pAdminWorld, &UAdminWorld::TickAdminWorld);
 }

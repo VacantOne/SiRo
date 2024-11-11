@@ -26,7 +26,8 @@ public:
 		if (nullptr != pWorld)
 		{
 			//pSystem = NewObject<TSys>(pWorld->GetGameInstance());
-			pSystem = NewObject<TSys>();
+			pSystem = NewObject<TSys>(pWorld);
+			//pSystem = NewObject<TSys>();
 		}
 		else
 		{
@@ -46,49 +47,50 @@ protected:
 
 	virtual void NativeTick(float DeltaSeconds) {}
 
-	//template<typename Cpt>
-	//FORCEINLINE FCptNativeDeclare& QueryCptInitialize()
-	//{
-	//	return UAdminWorld::Get(GetWorld())->QueryCptInitialize<Cpt>();
-	//}
+	template<typename Cpt>
+	FORCEINLINE FCptNativeDeclare& QueryCptInitialize()
+	{
+		return UAdminWorld::Get(GetWorld())->QueryCptInitialize<Cpt>();
+	}
 
-	////系统监听组件的Initialize，增加委托
-	//UFUNCTION(BlueprintCallable)
-	//void CptInitializeAdd(UClass *pClass, const FCptDelegate& InDelegate)
-	//{
-	//	UAdminWorld::Get(GetWorld())->QueryCptInitialize(pClass).Add(InDelegate);
-	//}
+	//系统监听组件的Initialize，增加委托
+	UFUNCTION(BlueprintCallable)
+	void CptInitializeAdd(UClass *pClass, const FCptDelegate& InDelegate)
+	{
+		UAdminWorld::Get(GetWorld())->QueryCptInitialize(pClass).Add(InDelegate);
+	}
 
-	//template<typename Cpt>
-	//FORCEINLINE FCptNativeDeclare& QueryCptBeginPlay()
-	//{
-	//	return UAdminWorld::Get(GetWorld())->QueryCptBeginPlay<Cpt>();
-	//}
+	template<typename Cpt>
+	FORCEINLINE FCptNativeDeclare& QueryCptBeginPlay()
+	{
+		UWorld* pWorld = GetWorld();
+		return UAdminWorld::Get(pWorld)->QueryCptBeginPlay<Cpt>();
+	}
 
-	////系统监听组件的BeginPlay，增加委托
-	//UFUNCTION(BlueprintCallable)
-	//void CptBeginPlayAdd(UClass *pClass, const FCptDelegate& InDelegate)
-	//{
-	//	UAdminWorld::Get(GetWorld())->QueryCptBeginPlay(pClass).Add(InDelegate);
-	//}
+	//系统监听组件的BeginPlay，增加委托
+	UFUNCTION(BlueprintCallable)
+	void CptBeginPlayAdd(UClass *pClass, const FCptDelegate& InDelegate)
+	{
+		UAdminWorld::Get(GetWorld())->QueryCptBeginPlay(pClass).Add(InDelegate);
+	}
 
-	//template<typename Cpt>
-	//FORCEINLINE FCptNativeDeclare& QueryCptEndPlay()
-	//{
-	//	return UAdminWorld::Get(GetWorld())->QueryCptEndPlay<Cpt>();
-	//}
+	template<typename Cpt>
+	FORCEINLINE FCptNativeDeclare& QueryCptEndPlay()
+	{
+		return UAdminWorld::Get(GetWorld())->QueryCptEndPlay<Cpt>();
+	}
 
-	////系统监听组件的EndPlay，增加委托
-	//UFUNCTION(BlueprintCallable)
-	//	void CptEndPlayAdd(UClass *pClass, const FCptDelegate& InDelegate)
-	//{
-	//	UAdminWorld::Get(GetWorld())->QueryCptEndPlay(pClass).Add(InDelegate);
-	//}
+	//系统监听组件的EndPlay，增加委托
+	UFUNCTION(BlueprintCallable)
+		void CptEndPlayAdd(UClass *pClass, const FCptDelegate& InDelegate)
+	{
+		UAdminWorld::Get(GetWorld())->QueryCptEndPlay(pClass).Add(InDelegate);
+	}
 
-	//FORCEINLINE FMsgDeclare& QueryMsgProcess(unsigned short usMsgType)
-	//{
-	//	return UAdminWorld::Get(GetWorld())->QueryMsgProcess(usMsgType);
-	//}
+	FORCEINLINE FMsgDeclare& QueryMsgProcess(unsigned short usMsgType)
+	{
+		return UAdminWorld::Get(GetWorld())->QueryMsgProcess(usMsgType);
+	}
 
 // 	FORCEINLINE float GetTickDelta() const { return m_fCurrentTick; }
 // 

@@ -14,10 +14,14 @@ public class GameComponent : ModuleRules
         PublicIncludePaths.AddRange(new string[] { "GameComponent"});
         PrivatePCHHeaderFile = "GameComponent.h";
         PrivateDependencyModuleNames.AddRange(new string[] {
-            "Core", "CoreUObject", "Engine", "EngineSettings", "EnhancedInput"
+            "Core", "CoreUObject", "Engine", "EngineSettings", "EnhancedInput", "UMG"
         });
         PrivateDependencyModuleNames.AddRange(new string[] {
             "MyCore"//, "GameBase", "GameComponent"
-        });		
+        });
+        // 添加公共头文件路径
+        PublicIncludePaths.AddRange(new string[] {
+            //"UI", "DataConfig" // 假设您的模块名为MyModule
+        });
     }
 }

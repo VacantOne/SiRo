@@ -14,10 +14,10 @@ public class GameSystem : ModuleRules
         PublicIncludePaths.AddRange(new string[] { "GameSystem"});
         PrivatePCHHeaderFile = "GameSystem.h";
         PrivateDependencyModuleNames.AddRange(new string[] {
-            "Core", "CoreUObject", "Engine", "EngineSettings", "EnhancedInput"
+            "Core", "CoreUObject", "Engine", "EngineSettings", "EnhancedInput", "UMG"
         });
         PrivateDependencyModuleNames.AddRange(new string[] {
-            "MyCore"//, "GameBase", "GameComponent"
+            "MyCore", "GameComponent", "GameBase", 
         });		
     }
 }

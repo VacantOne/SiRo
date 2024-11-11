@@ -21,9 +21,10 @@ void AMyGameMode::PreInitializeComponents()
 void AMyGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
 {
 	//不放到构造函数里面加载蓝图类，加载时机太早了，会导致蓝图类中项目C++中的组件数据、蓝图组件数据等丢失。
-	//FSoftClassPath BpPlayerController(TEXT("/Game/Gameplay/FrameExpand/BpMyPlayerController.BpMyPlayerController_C"));
-	//PlayerControllerClass = BpPlayerController.TryLoadClass<APlayerController>();
+	FSoftClassPath BpPlayerController(TEXT("/Game/Gameplay/FrameExpand/MyPlayerController.MyPlayerController_C"));
+	PlayerControllerClass = BpPlayerController.TryLoadClass<APlayerController>();
 	//FSoftClassPath BpPawn(TEXT("/Game/Gameplay/FrameExpand/BP_Person.BP_Person_C"));
+	//FSoftClassPath BpPawn(TEXT("/Game/Gameplay/FrameExpand/MyChartcter.MyChartcter_C"));
 	//DefaultPawnClass = BpPawn.TryLoadClass<APawn>();
 	Super::InitGame(MapName, Options, ErrorMessage);
 }

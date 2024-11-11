@@ -16,7 +16,7 @@ public class GameInstanceManager : ModuleRules
 
         PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "UMG"});
 		PrivateDependencyModuleNames.AddRange(new string[] {
-            "MyCore", "GameSystem", "GameBase"
+            "MyCore", "GameSystem", "GameBase", "GameComponent"
         });
 
     }

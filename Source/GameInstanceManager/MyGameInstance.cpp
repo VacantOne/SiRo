@@ -2,10 +2,11 @@
 // #include "GameSingle.h"
 #include "Engine/Engine.h"
 #include "MyCore/SingleExpand.h"
-// #include "AdminWorld.h"
+#include "MyCore/AdminWorld.h"
 #include "MyCore/ModuleInstance.h"
 #include "GameBase/GameBaseInstance.h"
 #include "GameSystem/GameSystemInstance.h"
+#include "GameComponent/GameComponentInstance.h"
 #include <MyCore/GameSingle.h>
 #include "Blueprint/UserWidget.h"
 
@@ -26,12 +27,18 @@ void UMyGameInstance::Init()
 
 	OnMyGameInstanceInit.Broadcast(this);
 
+	UAdminWorld* pAdminWorld = USingleExpand::CreateSingle<UAdminWorld>(this);
+
 	UGameBaseInstance* pGameBaseInstance = USingleExpand::CreateSingle<UGameBaseInstance>(this);
 	m_arrayModuleInstance.Add(pGameBaseInstance);
+
+	UGameComponentInstance* pGameComponentInstance = USingleExpand::CreateSingle<UGameComponentInstance>(this);
+	m_arrayModuleInstance.Add(pGameComponentInstance);
 
 	UGameSystemInstance* pGameSystemInstance = USingleExpand::CreateSingle<UGameSystemInstance>(this);
 	 m_arrayModuleInstance.Add(pGameSystemInstance);
 	
+
 	for (auto instance : m_arrayModuleInstance)
 	{
 		IModuleInstance* pModuleInstance = dynamic_cast<IModuleInstance*>(instance.Get());
