@@ -20,7 +20,7 @@ public:
 
 	virtual bool Initialize() override;
 	virtual TSharedRef<SWidget> RebuildWidget() override;
-	virtual void NativeConstruct();
+	virtual void NativeConstruct() override;
 
 private:
 	UFUNCTION()

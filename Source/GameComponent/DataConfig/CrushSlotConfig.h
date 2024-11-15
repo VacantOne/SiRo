@@ -1,5 +1,4 @@
 #include "CoreMinimal.h"
-//#include "Blueprint/UserWidget.h"
 #include "Engine/DataTable.h"
 #include "CrushSlotConfig.generated.h"
 
